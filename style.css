@@ -1,0 +1,131 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Times New Roman', Times, serif;
+  border-radius: 10px;
+  
+}
+body{
+    background-image: url("images/Alihossein.jpg");
+}
+
+.login-page {
+    width: 250;
+    padding: 7% 0 0;
+    margin: auto;
+  }
+  .login-page .form .login{
+    margin-top: -21px;
+  margin-bottom: 20px;
+  }
+  .form {
+    position: relative;
+    z-index: 1;
+    background: #080808;
+    color: rgb(248, 246, 246);
+    max-width: 330px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    
+  }
+  .form input {
+    
+    outline: 0;
+    background: rgb(250, 246, 246);
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  
+}
+
+.container {
+    width: 360;
+    padding: 8% ;
+    margin: auto;
+  
+}
+
+.container .row .login{
+    margin-top: -31px;
+    margin-bottom: 20px;
+    color:white;
+  }
+.row {
+    position: relative;
+    z-index: 1;
+    color: rgb(26, 6, 6);
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 35px;
+    text-align: center;
+    border-radius: 10px;
+    
+}
+.row .login{
+    
+    outline: 0;
+    background: rgb(3, 3, 3);
+    width: 100%;
+    border: 0;
+    margin: 0 0 20px;
+    padding: 25px;
+    box-sizing: border-box;
+    font-size: 15px;
+    
+
+}
+.hedding {
+    
+    color: #fffbfb;
+    font-size: 15px;
+    
+}
+#age_container {
+    margin: 20px 5px;
+    padding: 10px;
+    font-weight: 100px;
+    background: #EEE;
+    color:black;
+    font-size: 15px;
+    line-height: 20px;
+}
+#age span{
+    color:rgb(172, 3, 101);
+}
+#calculate {
+   
+    background-color: gold;
+    color: #0c0c0c;
+    text-align: center;
+    font-size: 15px;
+    padding: 8px ;
+    width: 95%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0 auto;
+}
+#calculate span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+#calculate span:after {
+    content: ">";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+#birth_date_input input[type="date" i] {
+    padding: 7px;
+    width: 95%;
+}
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CGPA CALCULATOR</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <link rel="shortcut icon" href="./Calculator.ico" type="image/x-icon">
+</head>
+<style>
+
+</style>
+<body style="overflow-x: hidden;">
+    <section>
+
+        <div class="card mx-5 my-3 shadow bg-warning">
+            <div class="card-img-top w-auto p-1 mx-auto my-3 rounded bg-warning">
+                <h2 class="text-dark px-4">CGPA - CALCULATOR</h2>
+            </div>
+            <div class="card-body">
+
+                <div class="row" style="overflow-x: auto;">
+                    <table class="table table-warning table-striped m-auto w-auto table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Semester</th>
+                                <th scope="col">Course Code</th>
+                                <th scope="col">Course Name</th>
+                                <th scope="col">Credits</th>
+                                <th scope="col">Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>18VAC09</td>
+                                <td>Version Control with Git</td>
+                                <td id="cd1">2</td>
+                                <td>
+                                <input type="text" placeholder="Enter the grade" id="s1"></td>
+                                
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>18VAC51</td>
+                                <td>Data Visualization using Tableau</td>
+                                <td id="cd2">3</td>
+                                <td><input type="text" placeholder="Enter the grade" id="s2"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>18MAC42</td>
+                                <td>Probability and Statistics</td>
+                                <td id="cd3">4</td>
+                                <td><input type="text" placeholder="Enter the grade" id="s3"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>18ECT44</td>
+                                <td>Microprocessor and Embedded Systems</td>
+                                <td id="cd4">3</td>
+                                <td><input type="text" placeholder="Enter the grade" id="s4"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>18ITT41</td>
+                                <td>Python Programming and Frameworks</td>
+                                <td id="cd5">4</td>
+                                <td><input type="text" placeholder="Enter the grade" id="s5"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>18CST41</td>
+                                <td>Database Management Systems</td>
+                                <td id="cd6">3</td>
+                                <td><input type="text" placeholder="Enter the grade" id="s6"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>18CST42</td>
+                                <td>Design and Analysis of Algorithms</td>
+                                <td id="cd7">4</td>
+                                <td><input type="text" placeholder="Enter the grade" id="s7"></td>
+                            </tr>
+                    
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center my-3">
+                    <button class="btn text-light bg-dark px-5 py-2 fw-bold" onclick="result()">SUBMIT</button>
+                </div>
+                <h3 class="text-center text-dark" style="display: none;">
+                    Grade Point Average (GPA) : <span id="point"></span>
+                </h3>
+            </div>
+            <div class="text-center my-3">
+            <a href="./index.html" class="btn text-light bg-dark px-4 py-2 " ="button">BACK</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+      //  var bgColor = ["#64B5F6", "#FFFACD", "#1976D2", "#0D47A1"];
+        var currentIndex = 0;
+        setInterval(function () {
+            document.getElementById("head").style.backgroundColor = bgColor[currentIndex];
+            if (!bgColor[currentIndex]) {
+                currentIndex = 0;
+            } else {
+                currentIndex++;
+            }
+        }, 5000);
+
+        const result = () => {
+            var grade = "";
+            var credit = 0, sum = 0, flag = 1;
+            for (let i = 1; i <= 7; i++) {
+                grade = document.getElementById("s" + i).value;
+                credit = parseInt(document.getElementById("cd" + i).innerText);
+
+                if (grade === 'O' || grade === 'o') {
+                    credit *= 10;
+                }
+                else if (grade === 'A+' || grade === 'a+') {
+                    credit *= 9;
+                }
+                else if (grade === 'A' || grade === 'a') {
+                    credit *= 8;
+                }
+                else if (grade === 'B+' || grade === 'b+') {
+                    credit *= 7;
+                }
+                else if (grade === 'B' || grade === 'b') {
+                    credit *= 6;
+                }
+                else {
+                    document.getElementById("point").innerText = "Arrear";
+                    document.getElementById("point").setAttribute('style', 'color: red !important');
+                    flag = 0;
+                    break;
+                }
+                sum += credit;
+            }
+            if (flag === 1) {
+                sum /= 26;
+                document.getElementById("point").innerText = sum.toFixed(2);
+            }
+            document.getElementsByTagName("h3")[0].style.display = "block";
+        }
+    </script>
+</body>
+ 
+</html>

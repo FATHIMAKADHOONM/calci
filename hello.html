@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<title> EB BILL </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<style>
+.btn-warning{
+  width:100%;
+}
+.btn-dark{
+  background-color:black;
+}
+</style>
+<body>
+  
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>EB-BILL Calculator</h3>
+           
+          </div>
+        </div>
+        <form class="login-form">
+          
+          <select name="course" id="course" class="form-control mt-4 form-control-sm" required>
+                  <option value="">--Select the Category--</option>
+                  <option value="">Domestic</option>
+                  <option value="">Commercial</option>
+           
+         </select>
+         <br>
+  
+      <div >
+        <form action="">
+          <div class="">
+            <input type="" class="form-control form-control-sm" id="get2" placeholder="No of Units Consumed">
+          </div>
+          <select name="course" id="course2" class="form-control mt-4 form-control-sm" required>
+                <option value="">--Billing Cycle--</option>
+                <option value="">Monthly</option>
+                <option value="">By-Monthly</option>
+               
+          </select> 
+        </form>
+      </div>
+      <br>
+ 
+          <p><button type="button" class="btn btn-warning " onclick="calculate()">Calculate</button> </p> 
+
+          <div class="">
+            <input type="" class="form-control form-control-sm" id="get4" placeholder="" readonly>
+         <div>
+        </form>
+      </div>
+    </div>
+<div>
+    <script>
+     
+    function calculate()
+    {   
+      var units = parseInt(document.getElementById("get2").value);
+      var o=0;
+      var s=document.getElementById("course");
+      var t=s.options[s.selectedIndex];
+      if(t.text=="Commercial"){
+        
+        if (units <= 100)
+        {
+           o= units * 10;
+        }
+        else if (units <= 200)
+        {
+            o= (100 * 10)
+                + (units - 100)
+                      * 15;
+        }
+        else if (units <= 300)
+        {
+            o= (100 * 10)
+                + (100 * 15)
+                + (units - 200)
+                      * 20;
+        }
+        else if (units > 300)
+        {
+            o= (100 * 10)
+                + (100 * 15)
+                + (100 * 20)
+                + (units - 300)
+                      * 25;
+        }
+        
+       if (document.getElementById("course2").selectedIndex == 1) {
+            document.getElementById("get4").value = o;
+          }
+         else{
+            document.getElementById("get4").value = o*2;
+
+         }
+
+    }
+
+    else if (t.text=="Domestic") {
+      if(document.getElementById("course2").selectedIndex!=0)
+      {
+      alert("Domestic calculations happens by-monthly");
+      document.getElementById("course2").selectedIndex=0;
+      }
+      if (units <= 100)
+        {
+           o= units * 0;
+        }
+        else if (units <= 200)
+        {
+            o= (100 * 0)
+                + (units - 100)
+                      * 1.5;
+        }
+        else if (units <= 300)
+        {
+            o= (100 * 0)
+                + (100 * 1.5)
+                + (units - 200)
+                      * 2.0;
+        }
+        else if (units > 300)
+        {
+            o= (100 * 0)
+                + (100 * 1.5)
+                + (100 * 2.0)
+                + (units - 300)
+                      * 2.5;
+        }
+        document.getElementById("get4").value=o;
+    } else {
+      document.getElementById("w").innerHTML="nothing selected";
+    }
+  }
+    
+    </script>
+    
+</body>
+ <a href="./index.html" class="btn btn-dark" role="button">BACK</a>
+</html>
